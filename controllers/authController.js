@@ -44,7 +44,6 @@ module.exports.signup_post = async (req, res) => {
             full_name: user.full_name,
             username: user.username,
             email: user.email,
-            status: user.status
          });
     }
     catch (err) {
