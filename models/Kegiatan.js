@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const KegiatanSchema = new mongoose.Schema({
+    img_kegiatan: {
+        type: String,
+        required: true
+    },
     judul_kegiatan: {
         type: String,
         required: true
