@@ -41,10 +41,10 @@ const createToken = (id) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-    const { full_name, username, email, password, status, } = req.body;
+    const { username, email, password, status } = req.body;
 
     try {
-        const user = await User.create({ full_name, username, email, password, status });
+        const user = await User.create({ username, email, password, status });
         res.status(201).json({ 
             user: user._id,
             username: user.username,
@@ -58,10 +58,10 @@ module.exports.signup_post = async (req, res) => {
     }
 }
 module.exports.signin_post = async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        const user = await User.signin(username, password);
+        const user = await User.signin(email, password);
         const token = createToken(user._id);
         res.status(200).json({ 
             user_id: user._id,
