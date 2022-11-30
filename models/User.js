@@ -24,10 +24,10 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please enter an password'],
         minLength: [6, 'Minimum password length is 6 character']
     },
-//     status: {
-//         type: String,
-//         required: [true, 'Please enter an status']
-//     }
+    status: {
+       type: String,
+       default: "admin",
+   },
     
 });
 
