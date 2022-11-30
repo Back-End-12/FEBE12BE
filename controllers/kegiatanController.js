@@ -1,14 +1,16 @@
 const bcrypt = require('bcrypt');
 const Kegiatan = require("../models/Kegiatan");
+const cloudinary = require('../utils/cloudinary');
 
 module.exports = {
-    uploadKegiatan: async (req, res) => {
-        const { judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
+    createKegiatan: async (req, res, next) => {
+        const { img_kegiatan, judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
     
         try {
             const kegiatan = await Kegiatan.create({ judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi });
             res.status(201).json({ 
                 kegiatan: kegiatan._id,
+                img_kegiatan: kegiatan.img_kegiatan,
                 judul_kegiatan: kegiatan.judul_kegiatan,
                 tgl_kegiatan: kegiatan.tgl_kegiatan,
                 lokasi_kegiatan: kegiatan.lokasi_kegiatan,
