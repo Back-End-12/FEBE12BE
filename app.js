@@ -12,7 +12,7 @@ const app = express();
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // middleware
-app.use(cors());
+app.use(cors);
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
