@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt');
 const Kegiatan = require("../models/Kegiatan");
-const cloudinary = require('../utils/cloudinary');
 
 module.exports = {
     createKegiatan: async (req, res, next) => {
