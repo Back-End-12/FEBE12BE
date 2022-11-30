@@ -35,12 +35,13 @@ const handleErrors = (err) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-    const { username, email, password, status } = req.body;
+    const { full_name, username, email, password, status } = req.body;
 
     try {
-        const user = await User.create({ username, email, password, status });
+        const user = await User.create({ full_name, username, email, password, status });
         res.status(201).json({ 
             user: user._id,
+            full_name: user.full_name,
             username: user.username,
             email: user.email,
             status: user.status
