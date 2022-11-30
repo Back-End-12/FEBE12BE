@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/kegiatan', kegiatanController.getAllKegiatan);
 router.get('/kegiatan/:id', kegiatanController.getKegiatanByID);
-router.post('/postKegiatan', [isAuthenticated, isAdmin], kegiatanController.uploadKegiatan);
+router.post('/postKegiatan', [isAuthenticated, isAdmin], kegiatanController.createKegiatan);
 router.delete('/kegiatan/delete/:id', [isAuthenticated, isAdmin], kegiatanController.deleteKegiatanByID);
 router.patch('/kegiatan/edit/:id', [isAuthenticated, isAdmin], kegiatanController.updateKegiatanByID);
 
