@@ -1,12 +1,12 @@
-const { Router } = require('express');
-const kegiatanController = require('../controllers/kegiatanController');
-const {isAuthenticated, isAdmin} = require("../middleware/auth");
-const router = Router();
+const express = require('express');
+const router = express.Router();
+const { createKegiatan, getAllKegiatan, deleteKegiatan, updateKegiatan } = require("../controllers/kegiatanController")
+const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
-router.get('/kegiatan', kegiatanController.getAllKegiatan);
-router.get('/kegiatan/:id', kegiatanController.getKegiatanByID);
-router.post('/postKegiatan', [isAuthenticated, isAdmin], kegiatanController.createKegiatan);
-router.delete('/kegiatan/delete/:id', [isAuthenticated, isAdmin], kegiatanController.deleteKegiatanByID);
-router.patch('/kegiatan/edit/:id', [isAuthenticated, isAdmin], kegiatanController.updateKegiatanByID);
+
+router.post('/Kegiatan/create', isAuthenticated, isAdmin, createKegiatan);
+router.get("/AllKegiatan", getAllKegiatan);
+router.delete('/Kegiatan/delete/:id', isAuthenticated, isAdmin, deleteKegiatan);
+router.put('/Kegiatan/update/:id', isAuthenticated, isAdmin, updateKegiatan);
 
 module.exports = router;
