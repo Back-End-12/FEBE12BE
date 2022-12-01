@@ -25,10 +25,11 @@ exports.isAuthenticated = async (req, res, next) =>{
 }
 
 // admin middleware
-exports.isAdmin = (req, res, next) =>{
-    if (req.user.status === "user" ){
-        return next (new ErrorResponse('Access denied, you must be an admin', 401));
-    }
-    next();
-
+exports.isAdmin = async(req, res, next) => {
+    if (req.user.status == 'admin'){
+        next()
+      }else{
+        res.status(400);
+        throw new Error('anda bukan admin');
+      }
 }
