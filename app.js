@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config();
+const morgan = require('morgan');
 const mongoose = require('./config/database');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -13,6 +15,7 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 
 // middleware
 app.use(cors());
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
