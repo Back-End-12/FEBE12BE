@@ -1,4 +1,4 @@
-const Kegiatan = require("../models/kegiatan");
+const Kegiatan = require("../models/Kegiatan");
 const ErrorResponse = require('../utils/errorResponse');
 const cloudinary = require('../utils/cloudinary');
 
