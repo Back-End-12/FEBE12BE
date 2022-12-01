@@ -50,7 +50,7 @@ exports.isAuthenticated = async (req, res, next) => {
         res.status(401);
         throw new Error("Not authorized, no token");
       }
-})
+},
 
 // admin middleware
 exports.isAdmin = async(req, res, next) => {
