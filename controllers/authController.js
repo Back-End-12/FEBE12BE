@@ -57,11 +57,11 @@ module.exports.signin_post = async (req, res) => {
 
     try {
         const user = await User.signin(email, password);
-        const token = generateToken(user.user_token);
+        const token = generateToken(user.token);
         res.status(200).json({ 
             user_id: user._id,
             status: user.status,
-            user_token: token
+            user_token: user.token
          })
     }
     catch (err) {
