@@ -6,7 +6,7 @@ module.exports = {
         const { img_kegiatan, judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
     
         try {
-            const kegiatan = await Kegiatan.create({ judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi });
+            const kegiatan = await Kegiatan.create({ img_kegiatan, judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi });
             res.status(201).json({ 
                 kegiatan: kegiatan._id,
                 img_kegiatan: kegiatan.img_kegiatan,
