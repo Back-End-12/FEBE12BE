@@ -57,7 +57,7 @@ module.exports.signin_post = async (req, res) => {
 
     try {
         const user = await User.signin(email, password);
-        const token = generateToken(user._id);
+        const token = generateToken(user.user_token);
         res.status(200).json({ 
             user_id: user._id,
             status: user.status,
