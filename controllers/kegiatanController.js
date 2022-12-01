@@ -6,7 +6,7 @@ const cloudinary = require('../utils/cloudinary');
 
 exports.createKegiatan = async (req, res, next) => {
 
-    const { judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
+    const { img_kegiatan, judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
 
 
     try {
@@ -17,6 +17,7 @@ exports.createKegiatan = async (req, res, next) => {
         // })
         const kegiatan = await Kegiatan.create({
             // image,
+            img_kegiatan,
             judul_kegiatan,
             tgl_kegiatan,
             lokasi_kegiatan,
@@ -29,6 +30,7 @@ exports.createKegiatan = async (req, res, next) => {
         res.status(201).json({
             success: true,
             kegiatan: kegiatan._id,
+                img_kegiatan: kegiatan.img_kegiatan,
                 judul_kegiatan: kegiatan.judul_kegiatan,
                 tgl_kegiatan: kegiatan.tgl_kegiatan,
                 lokasi_kegiatan: kegiatan.lokasi_kegiatan,
